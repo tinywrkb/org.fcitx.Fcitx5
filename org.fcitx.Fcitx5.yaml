@@ -248,3 +248,19 @@ modules:
   - fcitx5-zhuyin/fcitx5-zhuyin.yaml
   # libime-jyutping requires libime (fcitx5-chinese-addons) as make dependency
   - libime-jyutping/libime-jyutping.yaml
+
+  # fix noto-cjk-vf.ttc
+  - name: harfbuzz
+    config-opts:
+      - --with-gobject
+      - --with-graphite2
+      - --with-icu
+    sources:
+      - type: git
+        url: https://github.com/harfbuzz/harfbuzz
+        commit: 9c387e20d65a7a366ac270d789f6ad266014c9e0
+      - type: patch
+        path: harfbuzz-face-Clarify-face_index-handling.patch
+    cleanup:
+      - /lib/girepository*
+      - /share/gir*
