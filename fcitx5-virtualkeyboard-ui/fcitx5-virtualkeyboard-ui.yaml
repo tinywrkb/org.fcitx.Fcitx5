@@ -1,0 +1,14 @@
+name: fcitx5-virtualkeyboard-ui
+buildsystem: cmake-ninja
+build-options:
+  prefix: /app/addons/VirtualKeyboardUI
+  prepend-pkg-config-path: /app/addons/VirtualKeyboardUI/lib/pkgconfig
+config-opts:
+  - -DINSTALL_THEME=ON
+sources:
+  - type: git
+    url: https://github.com/clear-code/fcitx5-virtualkeyboard-ui.git
+    branch: master
+    commit: 9f3f3eaa0cf0f33bac539fb97afc8dae0a01c9ff
+  - type: patch
+    path: fix-install-theme-option.patch

@@ -116,6 +116,12 @@ add-extensions:
     no-autodownload: true
     add-ld-path: lib
     autodelete: true
+  org.fcitx.Fcitx5.Addon.VirtualKeyboardUI:
+    directory: addons/VirtualKeyboardUI
+    bundle: true
+    no-autodownload: true
+    add-ld-path: lib
+    autodelete: true
   org.fcitx.Fcitx5.Addon.Zhuyin:
     directory: addons/Zhuyin
     bundle: true
@@ -168,6 +174,9 @@ modules:
         path: fcitx5.sh
       - type: patch
         path: fcitx5-AppStream-metainfo-Add-content_rating-tag.patch
+      # https://github.com/clear-code/fcitx5/tree/5.0.14%2Bvirtual-keyboard-prerequisites
+      - type: patch
+        path: fcitx5-virtualkeyboard-ui.patch
     post-install:
       - install -d /app/addons
       - mv /app/bin/fcitx5{,-bin}
@@ -245,6 +254,7 @@ modules:
   # fcitx5-table-other requires libime (fcitx5-chinese-addons) as make dependency
   - fcitx5-table-other/fcitx5-table-other.yaml
   - fcitx5-unikey/fcitx5-unikey.yaml
+  - fcitx5-virtualkeyboard-ui/fcitx5-virtualkeyboard-ui.yaml
   - fcitx5-zhuyin/fcitx5-zhuyin.yaml
   # libime-jyutping requires libime (fcitx5-chinese-addons) as make dependency
   - libime-jyutping/libime-jyutping.yaml
