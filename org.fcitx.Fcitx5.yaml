@@ -167,7 +167,7 @@ modules:
       - type: file
         path: fcitx5.sh
       - type: patch
-        path: AppStream-metainfo-Add-content_rating-tag.patch
+        path: fcitx5-AppStream-metainfo-Add-content_rating-tag.patch
     post-install:
       - install -d /app/addons
       - mv /app/bin/fcitx5{,-bin}
